@@ -16,6 +16,18 @@
         android:theme="@style/Theme.Expo2023app"
         tools:targetApi="31">
         <activity
+            android:name=".MostrarInformacion"
+            android:exported="false" />
+        <activity
+            android:name=".EditarAgenda"
+            android:exported="false" />
+        <activity
+            android:name=".VistaAgendar"
+            android:exported="false" />
+        <activity
+            android:name=".CardAgendar"
+            android:exported="false" />
+        <activity
             android:name=".Factura"
             android:exported="false" />
         <activity

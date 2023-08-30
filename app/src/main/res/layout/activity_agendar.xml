@@ -7,135 +7,221 @@
     android:background="#ACCFE2"
     tools:context=".Agendar">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#174C4F"
-        android:text="Nombre cliente"
-        android:textSize="20sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="252dp"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.181">
+
+        <ImageView
+            android:id="@+id/foto"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/imagen" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/SubirFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#27253A"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="Subir\nfoto"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/TomarFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#27253A"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="Tomar\nfoto"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:background="#ACCFE2"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="Agendar"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#ACCFE2"
+            android:orientation="vertical"></LinearLayout>
+
+    </LinearLayout>
 
     <EditText
-        android:id="@+id/txtNombre"
-        android:layout_width="306dp"
-        android:layout_height="42dp"
+        android:id="@+id/masaje"
+        android:layout_width="247dp"
+        android:layout_height="46dp"
+        android:background="@drawable/rounded_corners"
         android:ems="10"
-        android:inputType="text"
+        android:fontFamily="@font/poppins"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
+        app:layout_constraintVertical_bias="0.532" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#174C4F"
-        android:text="Fecha"
-        android:textSize="20sp"
+    <Spinner
+        android:id="@+id/Masajitas"
+        android:layout_width="247dp"
+        android:layout_height="46dp"
+        android:background="@drawable/rounded_corners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#174C4F"
-        android:text="Tipo de  masaje"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
-
-    <Button
-        android:id="@+id/btnAgendar"
-        android:layout_width="129dp"
-        android:layout_height="49dp"
-        android:backgroundTint="#207178"
-        android:text="Agendar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612" />
+        app:layout_constraintVertical_bias="0.782" />
 
     <EditText
-        android:id="@+id/txtFecha"
-        android:layout_width="316dp"
-        android:layout_height="44dp"
+        android:id="@+id/precio"
+        android:layout_width="247dp"
+        android:layout_height="46dp"
+        android:background="@drawable/rounded_corners"
         android:ems="10"
-        android:inputType="date"
+        android:fontFamily="@font/poppins"
+        android:hint="Precio"
+        android:inputType="numberDecimal"
+        android:paddingHorizontal="15dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342" />
-
-    <EditText
-        android:id="@+id/txtMasaje"
-        android:layout_width="330dp"
-        android:layout_height="52dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintVertical_bias="0.652" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#174C4F"
-        android:text="Agendar masaje"
-        android:textSize="20sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Nombre:"
+        android:textAlignment="textEnd"
+        android:textColor="#787B8F"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.529" />
 
-    <Button
-        android:id="@+id/btnMostar"
-        android:layout_width="123dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#207178"
-        android:text="Mostrar"
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="tipo de masaje:"
+        android:textAlignment="textEnd"
+        android:textColor="#787B8F"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintVertical_bias="0.776" />
 
-    <ListView
-        android:id="@+id/miLista"
-        android:layout_width="383dp"
-        android:layout_height="153dp"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Precio:"
+        android:textAlignment="textEnd"
+        android:textColor="#787B8F"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.987" />
+        app:layout_constraintVertical_bias="0.643" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.959">
+
+        <Button
+            android:id="@+id/AgendarMasaje"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#207178"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Agendar"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
