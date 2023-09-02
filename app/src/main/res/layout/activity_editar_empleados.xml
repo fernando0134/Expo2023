@@ -7,6 +7,66 @@
     tools:context=".EditarEmpleados">
 
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="252dp"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.181">
+
+        <ImageView
+            android:id="@+id/EditarEmpleados_foto"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/imagen" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/EditarEmpleados_SubirFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#27253A"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="Subir\nfoto"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/EditarEmpleados_TomarFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#27253A"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="Tomar\nfoto"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -70,7 +130,7 @@
                 android:hint="Nuevo nombre..."
                 android:inputType="textPersonName"
                 android:paddingHorizontal="15dp"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textColorHighlight="#907ADD"
                 android:textColorHint="#787B8F"
                 android:textColorLink="#907ADD"
@@ -102,7 +162,7 @@
                 android:hint="Nuevo Dui..."
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="15dp"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textColorHint="#787B8F"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"

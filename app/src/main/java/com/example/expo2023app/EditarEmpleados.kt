@@ -3,9 +3,12 @@ package com.example.expo2023app
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +16,7 @@ import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import java.io.ByteArrayOutputStream
 import java.sql.PreparedStatement
 import java.sql.SQLException
 
@@ -23,7 +27,7 @@ private lateinit var SubirFoto1 : TextView
 //Y este si quiere tomar la foto desde la camara
 private lateinit var TomarFoto1 : TextView
 //Este va a ser el ImageView en el que se podra observar que imagen va a subir
-private lateinit var Imagen: ImageView
+private lateinit var Imagen1: ImageView
 
 //Esta va a ser la imagen que se almacene pero en forma de arreglo de bits para manipuarlo desde codigo
 private var foto: ByteArray? = null
@@ -58,7 +62,7 @@ class EditarEmpleados : AppCompatActivity() {
 
         if (foto_got != null && foto_got.isNotEmpty()) {
             val bitmap = BitmapFactory.decodeByteArray(foto_got, 0, foto_got.size)
-            val imageView = findViewById<ImageView>(R.id.EditarEmpleado_foto)
+            val imageView = findViewById<ImageView>(R.id.EditarEmpleados_foto)
             imageView.setImageBitmap(bitmap)
         }
 
@@ -119,7 +123,25 @@ class EditarEmpleados : AppCompatActivity() {
 
         //Buscamos los elementos que vamos a ocupar por su id
 
+        SubirFoto1=findViewById(R.id.EditarEmpleados_foto)
+        TomarFoto1=findViewById(R.id.EditarEmpleados_TomarFoto)
+        Imagen1=findViewById(R.id.EditarEmpleados_foto)
 
+        val drawable = Imagen1.drawable
+        val bitmap = (drawable as BitmapDrawable).bitmap
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 50, stream)
+        foto = stream.toByteArray()
+
+        //Hacemos que si presiona el boton de subir foto, pase el parametro de
+        //tomar foto, como falso
+        SubirFoto1.setOnClickListener {
+            getIMG(this, false)
+        }
+        //Y si quiere tomar la foto pues el parametro va a ser verdadero
+        TomarFoto1.setOnClickListener {
+            getIMG(this, true)
+        }
 
         //Para subir los datos a la base
 
@@ -144,7 +166,6 @@ class EditarEmpleados : AppCompatActivity() {
                                 "AND c.Departamentos = ?;"
 
                     )!!
-
                     addEmpleados.setString(1, lblEmpleados1Nom.text.toString())
                     addEmpleados.setString(2, lblDui1.text.toString())
                     addEmpleados.setBytes(3, foto)
@@ -154,6 +175,7 @@ class EditarEmpleados : AppCompatActivity() {
                     Toast.makeText(this, "Se ha actualizado correctamente", Toast.LENGTH_SHORT).show()
 
                     setResult(Activity.RESULT_OK, Intent())
+
                     conn.close()
                     finish()
                 }
@@ -169,5 +191,59 @@ class EditarEmpleados : AppCompatActivity() {
             }
 
         }
+    }
+    private fun getIMG(activity: Activity, capturarFoto: Boolean) {
+        //Hacemos la variable de un intent para abrir la pantalla correspondiente
+        //a lo que desee e usuario
+        val intent: Intent
+        if (capturarFoto) {
+            //En este caso, lo que se ejecutara sera la camara con ayuda del intent anterior
+            intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        } else {
+            //Y en este caso, se abrira el explorador de archivos
+            intent = Intent(Intent.ACTION_GET_CONTENT)
+            //En el cual solo podra seleccionar imagenes
+            intent.type = "image/*"
+        }
+        //Luego, se ejecuta un /Intent for activity result/ El cual como su nombre indica
+        //Esque va a abrir un intent el cual si o si va a tener que devolver algo, en este caso, le pasamos de parametro tambien un if
+        //Que indica que si escogio capturar la foto, va a tomar como parametro de recuperacion del dato como un /1/ ya que antes defnimos que "REQUEST_IMAGE_CAPTURE" = /1/
+        //Y si escogio NO capturar la foto, sino que tomara de archvos, pasara como parametro de recuperacion un /2/ ya que antes definimos que "PICK_IMAGE_REQUEST" = /2/
+        activity.startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), if (capturarFoto) REQUEST_IMAGE_CAPTURE else PICK_IMAGE_REQUEST)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        //Si el parametro de recuperacion es el mismo que el de tomar foto, y se haya detectado que se volvio de una activity siguiente, a
+        //La activity acual, se ejecutara el siguiente cogigo
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            //Se obtiente la imagen que se tomo como un parametro extra con el nombre de referencia "data" y se convierte a bitmaps
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+            // Obtener el arreglo de bytes de la imagen
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
+            val imageByteArray = byteArrayOutputStream.toByteArray()
+            // Asignar el arreglo de bytes a la variable 'foto'
+            foto = imageByteArray
+            // Mostrar la imagen en el ImageView
+            Imagen1.setImageBitmap(imageBitmap)
+        }
+
+        else if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            //se obtiene e Uri de la imagen que escogimos en los archivos
+            val imageUri = data.data
+            // Obtener el arreglo de bytes de la imagen seleccionada
+            val inputStream = contentResolver.openInputStream(imageUri!!)
+            val imageByteArray = inputStream?.readBytes()
+            // Asignar el arreglo de bytes a la variable 'foto'
+            if (imageByteArray != null) {
+                foto = imageByteArray
+            }
+            // Mostrar la imagen en el ImageView
+            Imagen1.setImageURI(imageUri)
+        }
+    }
+    override fun onBackPressed() {
+        finish()
     }
 }

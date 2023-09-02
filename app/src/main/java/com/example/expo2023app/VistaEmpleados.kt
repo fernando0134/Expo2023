@@ -10,7 +10,7 @@ import java.sql.SQLException
 import java.text.DecimalFormat
 
 private lateinit var AgregarEmpleado: Button
-private lateinit var cardsLayout1: LinearLayout
+private lateinit var cardsLayout: LinearLayout
 private lateinit var btnRefresh1: LinearLayout
 var Conectar: Connection? = null
 
@@ -30,25 +30,26 @@ class VistaEmpleados : AppCompatActivity() {
         }
 
         //Hacemos referencia a el linear layout en el cual vamos a sampar las cards
-        cardsLayout1 = findViewById(R.id.MainEmpleados_LiEmpleados)
+        cardsLayout = findViewById(R.id.MainEmpleados_LiEmpleados)
 
         Actualizar()
 
         btnRefresh1=findViewById(R.id.MainEmpleados_refresh)
+
         btnRefresh1.setOnClickListener {
-            cardsLayout1.removeAllViews()
+            cardsLayout.removeAllViews()
             Actualizar()
         }
     }
 
     private fun Actualizar(){
         //creamos la conexion
-        connection = ConnectSql().dbConn()
+        Conectar = ConnectSql().dbConn()
         //Si la conexion jala, se buscaran datos
-        if (connection != null) {
+        if (Conectar != null) {
             try {
                 //Sacamos los datos que mostraremos en la card
-                val statement = connection!!.createStatement()
+                val statement = Conectar!!.createStatement()
                 val query = "SELECT idEmpleados, nombre_Empleado, TbDepartamentos.Departamentos, dui, fotoempleado FROM TbEmpleados JOIN TbDepartamentos ON TbEmpleados.idagregar = TbDepartamentos.idagregar;"
                 val resultSet = statement.executeQuery(query)
 
@@ -111,7 +112,7 @@ class VistaEmpleados : AppCompatActivity() {
                                 val addProducto: PreparedStatement =  con.prepareStatement("delete from TbEmpleados where idEmpleados=?")!!
                                 addProducto.setString(1, Id)
                                 addProducto.executeUpdate()
-                                cardsLayout1.removeView(cardView)
+                                cardsLayout.removeView(cardView)
                                 Toast.makeText(this, "Eliminado correctamente", Toast.LENGTH_SHORT).show()
                                 con.close()
                             }
@@ -129,15 +130,26 @@ class VistaEmpleados : AppCompatActivity() {
                     blDui.text = Dui
 
                     //Finalmente llamar a la card a el LinearLayout
-                    cardsLayout1.addView(cardView)
+                    cardsLayout.addView(cardView)
                 }
 
                 resultSet.close()
                 statement.close()
-                connection!!.close()
+                Conectar!!.close()
             } catch (ex: SQLException) {
                 // Manejo de excepciones en caso de error en la consulta
                 ex.printStackTrace()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == AGREGAR_EMPLEADOS_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                cardsLayout.removeAllViews()
+                Actualizar()
             }
         }
     }

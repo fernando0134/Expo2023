@@ -96,27 +96,27 @@
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/AgregarEmpleado_name"
-            android:layout_width="247dp"
-            android:layout_height="46dp"
-            android:background="@drawable/rounded_corners"
-            android:ems="10"
-            android:fontFamily="@font/poppins"
-            android:hint="nombre"
-            android:inputType="textPersonName"
-            android:paddingHorizontal="15dp"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="#907ADD"
-            android:textColorHint="#787B8F"
-            android:textColorLink="#907ADD"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.841"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.532" />
+    <EditText
+        android:id="@+id/AgregarEmpleado_name"
+        android:layout_width="247dp"
+        android:layout_height="46dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="nombre"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        android:textColor="#000000"
+        android:textColorHighlight="#907ADD"
+        android:textColorHint="#787B8F"
+        android:textColorLink="#907ADD"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532" />
 
         <Spinner
             android:id="@+id/AgregarEmpleado_Departamento"
@@ -130,25 +130,25 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.782" />
 
-        <EditText
-            android:id="@+id/AgregarEmpleado_Dui"
-            android:layout_width="247dp"
-            android:layout_height="46dp"
-            android:background="@drawable/rounded_corners"
-            android:ems="10"
-            android:fontFamily="@font/poppins"
-            android:hint="Dui"
-            android:inputType="numberDecimal"
-            android:paddingHorizontal="15dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#787B8F"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.841"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.652" />
+    <EditText
+        android:id="@+id/AgregarEmpleado_Dui"
+        android:layout_width="247dp"
+        android:layout_height="46dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="Dui"
+        android:inputType="numberDecimal"
+        android:paddingHorizontal="15dp"
+        android:textColor="#000000"
+        android:textColorHint="#787B8F"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.652" />
 
         <TextView
             android:id="@+id/textView2"

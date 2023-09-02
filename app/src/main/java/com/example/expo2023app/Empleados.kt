@@ -145,8 +145,9 @@ class Empleados : AppCompatActivity() {
                     addProducto.executeUpdate()
 
                     Toast.makeText(this, "Se ha registrado correctamente", Toast.LENGTH_SHORT).show()
-
+                    val inicio: Intent = Intent(this, VistaEmpleados::class.java)
                     setResult(Activity.RESULT_OK, Intent())
+                    startActivity(inicio)
                     conn.close()
                     finish()
                 }
