@@ -27,7 +27,7 @@ class EditarAgenda : AppCompatActivity() {
 
     private lateinit var TomarFoto : TextView
 
-    private lateinit var Imagen: ImageView
+    private lateinit var Imagen1: ImageView
 
     private var foto: ByteArray? = null
 
@@ -106,9 +106,9 @@ class EditarAgenda : AppCompatActivity() {
 
         SubirFoto=findViewById(R.id.EditarAgenda_SubirFoto)
         TomarFoto=findViewById(R.id.EditarAgenda_TomarFoto)
-        Imagen=findViewById(R.id.EditarAgenda_fotos)
+        Imagen1 =findViewById(R.id.EditarAgenda_fotos)
 
-        val drawable = Imagen.drawable
+        val drawable = Imagen1.drawable
         val bitmap = (drawable as BitmapDrawable).bitmap
         val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 50, stream)
@@ -199,7 +199,7 @@ class EditarAgenda : AppCompatActivity() {
 
             foto = imageByteArray
 
-            Imagen.setImageBitmap(imageBitmap)
+            Imagen1.setImageBitmap(imageBitmap)
         }
 
         else if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
@@ -213,7 +213,7 @@ class EditarAgenda : AppCompatActivity() {
                 foto = imageByteArray
             }
 
-            Imagen.setImageURI(imageUri)
+            Imagen1.setImageURI(imageUri)
         }
     }
 

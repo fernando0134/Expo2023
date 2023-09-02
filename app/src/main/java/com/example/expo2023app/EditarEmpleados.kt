@@ -97,8 +97,8 @@ class EditarEmpleados : AppCompatActivity() {
 
             //Ahora, por cada fila encontrada en la consulta va a repetir este proceso
             while (resultSet?.next() == true) {
-                //Busca en la columna clasificacion
-                val Depa = resultSet.getString("departamento")
+                //Busca en la columna Departamentos
+                val Depa = resultSet.getString("Departamentos")
                 //La pone en e array que hicimos antes
                 depa1.add(Depa)
             }
