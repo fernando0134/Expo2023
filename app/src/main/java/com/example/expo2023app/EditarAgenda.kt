@@ -59,13 +59,13 @@ class EditarAgenda : AppCompatActivity() {
 
         if (foto_got != null && foto_got.isNotEmpty()) {
             val bitmap = BitmapFactory.decodeByteArray(foto_got, 0, foto_got.size)
-            val imageView = findViewById<ImageView>(R.id.EditarProducto_foto)
+            val imageView = findViewById<ImageView>(R.id.EditarAgenda_fotos)
             imageView.setImageBitmap(bitmap)
         }
 
-        producto_antes=findViewById(R.id.EditarProducto_name_antes)
-        precio_antes=findViewById(R.id.EditarProducto_price_antes)
-        categoria_antes=findViewById(R.id.EditarProducto_cat_antes)
+        producto_antes=findViewById(R.id.EditarEmpleado_name_antes)
+        precio_antes=findViewById(R.id.EditarEmpleado_Dui_antes)
+        categoria_antes=findViewById(R.id.EditarEmpleado_depa_antes)
 
         producto_antes.setText(nombre_got)
         precio_antes.setText(price_got)
@@ -104,9 +104,9 @@ class EditarAgenda : AppCompatActivity() {
             println(ex.message)
         }
 
-        SubirFoto=findViewById(R.id.EditarProducto_SubirFoto)
-        TomarFoto=findViewById(R.id.EditarProducto_TomarFoto)
-        Imagen=findViewById(R.id.EditarProducto_foto)
+        SubirFoto=findViewById(R.id.EditarAgenda_SubirFoto)
+        TomarFoto=findViewById(R.id.EditarAgenda_TomarFoto)
+        Imagen=findViewById(R.id.EditarAgenda_fotos)
 
         val drawable = Imagen.drawable
         val bitmap = (drawable as BitmapDrawable).bitmap

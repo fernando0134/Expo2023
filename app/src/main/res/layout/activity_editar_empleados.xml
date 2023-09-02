@@ -6,4 +6,154 @@
     android:layout_height="match_parent"
     tools:context=".EditarEmpleados">
 
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:background="#207178"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="Empleados"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#207178"
+            android:orientation="vertical"></LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="390dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/EditarEmpleado_name_antes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="TextView"
+                android:textColor="#787B8F"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/EditarEmpleado_name"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/rounded_corners"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Nuevo nombre..."
+                android:inputType="textPersonName"
+                android:paddingHorizontal="15dp"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#907ADD"
+                android:textColorHint="#787B8F"
+                android:textColorLink="#907ADD"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.564" />
+
+            <TextView
+                android:id="@+id/EditarEmpleado_Dui_antes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="TextView"
+                android:textAlignment="textStart"
+                android:textColor="#787B8F"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/EditarDui_Dui"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/rounded_corners"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Nuevo Dui..."
+                android:inputType="numberDecimal"
+                android:paddingHorizontal="15dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#787B8F"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.662"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.719" />
+
+            <TextView
+                android:id="@+id/EditarEmpleado_depa_antes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="TextView"
+                android:textAlignment="textStart"
+                android:textColor="#787B8F"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/EditarEmpleado_depa"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/rounded_corners"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.662"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.859" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/EditarEmpleado_actualizar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#207178"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Actualizar"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,7 @@ class MostrarInformacion : AppCompatActivity() {
 
         if (foto != null && foto.isNotEmpty()) {
             val bitmap = BitmapFactory.decodeByteArray(foto, 0, foto.size)
-            val imageView = findViewById<ImageView>(R.id.ProductosInfo_Foto)
+            val imageView = findViewById<ImageView>(R.id.EmpleadoInfo_Foto)
             imageView.setImageBitmap(bitmap)
         }
 
