@@ -48,6 +48,7 @@ class VistaAgendar : AppCompatActivity() {
 
     }
 
+    @SuppressLint("MissingInflatedId")
     private fun Actualizar(){
 
         connection = ConnectSql().dbConn()

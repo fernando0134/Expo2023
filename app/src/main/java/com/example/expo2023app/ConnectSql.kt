@@ -8,7 +8,7 @@ import java.sql.SQLException
 
 class ConnectSql {
     //private  val ip="10.20.1.130:49894"
-    //private val db="clinica"
+    //private val db="a"
     //private val username ="sa"
     //private val password ="itr2023"
 

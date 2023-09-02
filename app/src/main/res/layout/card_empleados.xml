@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,7 +9,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/CardInformacion"
+            android:id="@+id/cardEmpleados_Info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners_bottom"
@@ -20,12 +18,12 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/cardInformacion"
+                android:id="@+id/cardEmpleados_Empleados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
                 android:paddingBottom="15dp"
-                android:text="Informacion Masaje"
+                android:text="Empleados"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
 
@@ -35,23 +33,23 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/cardMasaje"
+                    android:id="@+id/cardEmpleados_Departamento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="Masaje"
+                    android:text="Departamento"
                     android:textColor="#A1A7BA"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/cardprecio"
+                    android:id="@+id/cardEmpleado_Dui"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_semibold"
                     android:gravity="bottom"
-                    android:text="Precio"
+                    android:text="Dui"
                     android:textAlignment="textEnd"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp" />
@@ -65,7 +63,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/cardEliminar"
+                android:id="@+id/cardEmpleados_btnEliminar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -78,7 +76,7 @@
                 android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/cardEditar"
+                android:id="@+id/cardEditar_btnEditar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

@@ -7,6 +7,7 @@ import android.widget.Button
 
 lateinit var btnMasajes: Button
 lateinit var btnCalendario : Button
+lateinit var BtnEmpleados : Button
 
 class VistaClinica : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +16,7 @@ class VistaClinica : AppCompatActivity() {
 
         btnCalendario = findViewById(R.id.Calendario)
         btnMasajes = findViewById(R.id.btnmasajes)
+        BtnEmpleados  = findViewById(R.id.Empleados)
 
         btnMasajes.setOnClickListener {
             val Masajes: Intent = Intent(this, Masajes::class.java)
@@ -24,6 +26,11 @@ class VistaClinica : AppCompatActivity() {
         btnCalendario.setOnClickListener {
             val calendario: Intent = Intent(this,Calendario::class.java)
             startActivity(calendario)
+        }
+
+        BtnEmpleados.setOnClickListener {
+            val Emplo: Intent = Intent(this,Empleados::class.java)
+            startActivity(Emplo)
         }
     }
 }

@@ -40,7 +40,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
@@ -72,7 +74,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/ProductosInfo_Producto"
+                android:id="@+id/NombreCliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -92,7 +94,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/ProductosInfo_Categoria"
+                android:id="@+id/TipoMasaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -112,7 +114,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/ProductosInfo_Precio"
+                android:id="@+id/PrecioMasaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -122,7 +124,7 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/ProductosInfo_Back"
+                android:id="@+id/BtnRegresar"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginBottom="120dp"

@@ -80,7 +80,7 @@ class EditarAgenda : AppCompatActivity() {
         try {
 
             val statement = conn?.createStatement()
-            val query = "SELECT clasificacion FROM tbClasificacion"
+            val query = "SELECT masajes FROM Tbcitas"
 
             val resultSet = statement?.executeQuery(query)
 
@@ -89,8 +89,8 @@ class EditarAgenda : AppCompatActivity() {
 
             while (resultSet?.next() == true) {
                 //
-                val clasificacion = resultSet.getString("clasificacion")
-                masajistas.add(clasificacion)
+                val TipoMasaje1 = resultSet.getString("masajes")
+                masajistas.add(TipoMasaje1)
             }
 
 
@@ -136,12 +136,12 @@ class EditarAgenda : AppCompatActivity() {
                     val addMasajes: PreparedStatement =  conn?.prepareStatement(
 
 
-                        "UPDATE tbProductos\n" +
-                                "SET IdClasificacion = c.IdClasificacion, nombre = ?, precioUnit = ?, foto = ?\n" +
-                                "FROM tbProductos p\n" +
-                                "JOIN tbClasificacion c ON p.IdClasificacion = c.IdClasificacion\n" +
-                                "WHERE p.IdProducto = 28\n" +
-                                "AND c.clasificacion = ?;"
+                        "UPDATE TbMasajes\n" +
+                                "SET IdMasajes = c.idcita, nombre = ?, precioUnit = ?, foto = ?\n" +
+                                "FROM TbMasajes p\n" +
+                                "JOIN Tbcitas c ON p.idcita = c.idcita\n" +
+                                "WHERE p.IdMasajes = 28\n" +
+                                "AND c.masajes = ?;"
 
                     )!!
 
