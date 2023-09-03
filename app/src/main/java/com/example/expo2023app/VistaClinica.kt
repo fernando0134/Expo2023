@@ -9,6 +9,9 @@ lateinit var btnMasajes: Button
 lateinit var btnCalendario : Button
 lateinit var BtnEmpleados : Button
 lateinit var BtnFactura : Button
+lateinit var BtnReportes: Button
+lateinit var BtnClientes: Button
+
 class VistaClinica : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +21,8 @@ class VistaClinica : AppCompatActivity() {
         btnMasajes = findViewById(R.id.btnmasajes)
         BtnEmpleados  = findViewById(R.id.Empleados)
         BtnFactura = findViewById(R.id.btnFactura)
+        BtnReportes = findViewById(R.id.reportes)
+        BtnClientes
 
         btnMasajes.setOnClickListener {
             val Masajes: Intent = Intent(this, Masajes::class.java)
@@ -32,6 +37,10 @@ class VistaClinica : AppCompatActivity() {
         BtnEmpleados.setOnClickListener {
             val Emplo: Intent = Intent(this,Empleados::class.java)
             startActivity(Emplo)
+        }
+        BtnReportes.setOnClickListener {
+            val Repor: Intent = Intent(this,Reportes::class.java)
+            startActivity(Repor)
         }
     }
 }
