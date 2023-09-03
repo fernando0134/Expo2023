@@ -1,15 +1,17 @@
 package com.example.expo2023app
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import java.sql.Connection
 import java.sql.PreparedStatement
 import java.sql.SQLException
+
 
 
 
@@ -54,17 +56,17 @@ class VistaEmpleados : AppCompatActivity() {
         if (Conectar != null) {
             //Sacamos los datos que mostraremos en la card
             val statement = Conectar!!.createStatement()
-            val query = "SELECT idEmpleados, nombre_Empleado, TbDepartamentos.Departamentos, dui, fotoempleado FROM TbEmpleados JOIN TbDepartamentos ON TbEmpleados.idEmpleados = TbDepartamentos.idagregar;"
+            val query = "SELECT idEmpleados, nombre, TbDepartamentos.Departamentos, dui FROM TbEmpleados JOIN TbDepartamentos ON TbEmpleados.idEmpleados = TbDepartamentos.idagregar;"
             val resultSet = statement.executeQuery(query)
 
             //Sacamos los datos que obtuvimos de la busqueda sql
             while (resultSet.next()) {
                 //Vamos a sacar el id pq asi sabremos cual es la card que queremos eliminar, no se mostrara en la card, pero se guardara
                 val Id = resultSet.getString("idEmpleados")
-                val nombre = resultSet.getString("nombre_Empleado")
+                val nombre = resultSet.getString("nombre")
                 val departamento = resultSet.getString("Departamentos")
                 val dui = resultSet.getString("Dui")
-                val foto: ByteArray? = resultSet.getBytes("fotoempleado")
+
 
                 //Creamos una nueva card (la cual tendriamos que haber hecho el diseño antes) /layout/card_producto
                 val cardView = layoutInflater.inflate(R.layout.card_empleados, null)
@@ -89,9 +91,7 @@ class VistaEmpleados : AppCompatActivity() {
                     i.putExtra("nomb", nombre)
                     i.putExtra("depa", departamento)
                     i.putExtra("dui", dui)
-                    if (foto != null && foto.isNotEmpty()) {
-                        i.putExtra("foto", foto) // Pasar el ByteArray directamente
-                    }
+
                     startActivity(i)
                 }
 
@@ -101,9 +101,6 @@ class VistaEmpleados : AppCompatActivity() {
                     i.putExtra("nomb", nombre)
                     i.putExtra("depa", departamento)
                     i.putExtra("dui", dui)
-                    if (foto != null && foto.isNotEmpty()) {
-                        i.putExtra("foto", foto) // Pasar el ByteArray directamente
-                    }
                     startActivityForResult(i, EDITAR_EMPLEADOS_REQUEST_CODE )
                 }
 
