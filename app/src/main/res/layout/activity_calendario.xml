@@ -34,17 +34,17 @@
         app:layout_constraintVertical_bias="0.207" />
 
     <Button
-        android:id="@+id/calend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/BtnCalendario"
+        android:layout_width="217dp"
+        android:layout_height="82dp"
         android:backgroundTint="#207178"
         android:text="Agendar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.887" />
+        app:layout_constraintVertical_bias="0.926" />
 
     <ImageView
         android:id="@+id/imageView17"

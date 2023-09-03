@@ -106,7 +106,7 @@ class EditarE : AppCompatActivity() {
                                 "SET idagregar = c.idagregar, nombre = ?, dui = ?\n" +
                                 "FROM TbEmpleados p\n" +
                                 "JOIN TbDepartamentos c ON p.idagregar = c.idagregar\n" +
-                                "WHERE p.idempleados = 28\n" +
+                                "WHERE p.idempleados = 1\n" +
                                 "AND c.Departamentos = ?;"
 
                     )!!

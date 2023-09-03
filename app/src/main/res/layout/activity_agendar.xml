@@ -8,8 +8,8 @@
     tools:context=".Agendar">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="252dp"
+        android:layout_width="355dp"
+        android:layout_height="225dp"
         android:layout_marginHorizontal="20dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,45 +26,8 @@
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/imagen" />
+            app:srcCompat="@drawable/logo" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/SubirFoto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_corners"
-                android:backgroundTint="#27253A"
-                android:fontFamily="@font/poppins_semibold"
-                android:gravity="center"
-                android:text="Subir\nfoto"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/TomarFoto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_corners"
-                android:backgroundTint="#27253A"
-                android:fontFamily="@font/poppins_semibold"
-                android:gravity="center"
-                android:text="Tomar\nfoto"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

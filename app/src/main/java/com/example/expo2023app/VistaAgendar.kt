@@ -56,7 +56,7 @@ class VistaAgendar : AppCompatActivity() {
             try {
 
                 val statement = connection!!.createStatement()
-                val query = "SELECT IdMasajes, Nombre, Tbcitas.masajes, PrecioUnit, foto FROM TbMasajes JOIN Tbcitas ON TbMasajes.idcita = Tbcitas.idcita;"
+                val query = "SELECT IdMasajes, Nombre, Tbcitas.masajes, PrecioUnit FROM TbMasajes JOIN Tbcitas ON TbMasajes.idcita = Tbcitas.idcita;"
                 val resultSet = statement.executeQuery(query)
 
 
@@ -66,7 +66,7 @@ class VistaAgendar : AppCompatActivity() {
                     val nombre = resultSet.getString("Nombre")
                     val masajes = resultSet.getString("masajes")
                     val precio = resultSet.getFloat("precioUnit")
-                    val foto: ByteArray? = resultSet.getBytes("foto")
+
 
 
                     val cardView = layoutInflater.inflate(R.layout.card_agendar, null)
@@ -90,9 +90,6 @@ class VistaAgendar : AppCompatActivity() {
                         i.putExtra("nomb", nombre)
                         i.putExtra("cat", masajes)
                         i.putExtra("price", "$" + price)
-                        if (foto != null && foto.isNotEmpty()) {
-                            i.putExtra("foto", foto)
-                        }
                         startActivity(i)
                     }
 
@@ -101,9 +98,6 @@ class VistaAgendar : AppCompatActivity() {
                         i.putExtra("nomb", nombre)
                         i.putExtra("cat", masajes)
                         i.putExtra("price", "$" + price)
-                        if (foto != null && foto.isNotEmpty()) {
-                            i.putExtra("foto", foto) // Pasar el ByteArray directamente
-                        }
                         startActivityForResult(i, EDITAR_masaje_REQUEST_CODE)
                     }
 

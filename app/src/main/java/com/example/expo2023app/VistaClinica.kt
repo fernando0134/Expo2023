@@ -8,7 +8,7 @@ import android.widget.Button
 lateinit var btnMasajes: Button
 lateinit var btnCalendario : Button
 lateinit var BtnEmpleados : Button
-
+lateinit var BtnFactura : Button
 class VistaClinica : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +17,7 @@ class VistaClinica : AppCompatActivity() {
         btnCalendario = findViewById(R.id.Calendario)
         btnMasajes = findViewById(R.id.btnmasajes)
         BtnEmpleados  = findViewById(R.id.Empleados)
+        BtnFactura = findViewById(R.id.btnFactura)
 
         btnMasajes.setOnClickListener {
             val Masajes: Intent = Intent(this, Masajes::class.java)

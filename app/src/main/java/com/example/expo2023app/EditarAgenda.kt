@@ -22,18 +22,6 @@ import java.sql.SQLException
 
 class EditarAgenda : AppCompatActivity() {
 
-
-    private lateinit var SubirFoto : TextView
-
-    private lateinit var TomarFoto : TextView
-
-    private lateinit var Imagen1: ImageView
-
-    private var foto: ByteArray? = null
-
-    private val PICK_IMAGE_REQUEST = 1
-    private val REQUEST_IMAGE_CAPTURE = 2
-
     private lateinit var Masaje1: EditText
     private lateinit var Precio: EditText
     private lateinit var btnActualizar: Button
@@ -55,13 +43,7 @@ class EditarAgenda : AppCompatActivity() {
         val nombre_got = intent.getStringExtra("nomb")
         val clasificacion_got = intent.getStringExtra("cat")
         val price_got = intent.getStringExtra("price")
-        val foto_got = intent.getByteArrayExtra("foto")
 
-        if (foto_got != null && foto_got.isNotEmpty()) {
-            val bitmap = BitmapFactory.decodeByteArray(foto_got, 0, foto_got.size)
-            val imageView = findViewById<ImageView>(R.id.EditarAgenda_fotos)
-            imageView.setImageBitmap(bitmap)
-        }
 
         producto_antes=findViewById(R.id.EditarEmpleado_name_antes)
         precio_antes=findViewById(R.id.EditarEmpleado_Dui_antes)
@@ -104,26 +86,6 @@ class EditarAgenda : AppCompatActivity() {
             println(ex.message)
         }
 
-        SubirFoto=findViewById(R.id.EditarAgenda_SubirFoto)
-        TomarFoto=findViewById(R.id.EditarAgenda_TomarFoto)
-        Imagen1 =findViewById(R.id.EditarAgenda_fotos)
-
-        val drawable = Imagen1.drawable
-        val bitmap = (drawable as BitmapDrawable).bitmap
-        val stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 50, stream)
-        foto = stream.toByteArray()
-
-        //Hacemos que si presiona el boton de subir foto, pase el parametro de
-        //tomar foto, como falso
-        SubirFoto.setOnClickListener {
-            getIMG(this, false)
-        }
-        //Y si quiere tomar la foto pues el parametro va a ser verdadero
-        TomarFoto.setOnClickListener {
-            getIMG(this, true)
-        }
-
 
         Masaje1=findViewById(R.id.EditarMasaje)
         Precio=findViewById(R.id.EditarPrecio)
@@ -131,24 +93,22 @@ class EditarAgenda : AppCompatActivity() {
         btnActualizar=findViewById(R.id.Actualizar)
 
         btnActualizar.setOnClickListener {
-            if(Precio.text.toString()!="" && Masaje1.text.toString()!="" && spinner.selectedItem.toString()!="Nueva categoria..."){
+            if(Precio.text.toString()!="" && Masaje1.text.toString()!="" && spinner.selectedItem.toString()!="Nuevo Masaje..."){
                 try {
                     val addMasajes: PreparedStatement =  conn?.prepareStatement(
 
-
                         "UPDATE TbMasajes\n" +
-                                "SET IdMasajes = c.idcita, nombre = ?, precioUnit = ?, foto = ?\n" +
+                                "SET IdMasajes = c.idcita, nombre = ?, precioUnit = ?\n" +
                                 "FROM TbMasajes p\n" +
                                 "JOIN Tbcitas c ON p.idcita = c.idcita\n" +
-                                "WHERE p.IdMasajes = 28\n" +
+                                "WHERE p.IdMasajes = 1\n" +
                                 "AND c.masajes = ?;"
 
                     )!!
 
                     addMasajes.setString(1, Masaje1.text.toString())
                     addMasajes.setString(2, Precio.text.toString())
-                    addMasajes.setBytes(3, foto)
-                    addMasajes.setString(4, spinner.selectedItem.toString())
+                    addMasajes.setString(3, spinner.selectedItem.toString())
                     addMasajes.executeUpdate()
 
                     Toast.makeText(this, "Se ha actualizado correctamente", Toast.LENGTH_SHORT).show()
@@ -168,52 +128,6 @@ class EditarAgenda : AppCompatActivity() {
                 Toast.makeText(this, "Rellene todos los campo", Toast.LENGTH_SHORT).show()
             }
 
-        }
-    }
-
-
-    private fun getIMG(activity: Activity, capturarFoto: Boolean) {
-
-        val intent: Intent
-        if (capturarFoto) {
-            intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        } else {
-
-            intent = Intent(Intent.ACTION_GET_CONTENT)
-
-            intent.type = "image/*"
-        }
-        activity.startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), if (capturarFoto) REQUEST_IMAGE_CAPTURE else PICK_IMAGE_REQUEST)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            val imageBitmap = data?.extras?.get("data") as Bitmap
-
-            val byteArrayOutputStream = ByteArrayOutputStream()
-            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
-            val imageByteArray = byteArrayOutputStream.toByteArray()
-
-            foto = imageByteArray
-
-            Imagen1.setImageBitmap(imageBitmap)
-        }
-
-        else if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-
-            val imageUri = data.data
-
-            val inputStream = contentResolver.openInputStream(imageUri!!)
-            val imageByteArray = inputStream?.readBytes()
-
-            if (imageByteArray != null) {
-                foto = imageByteArray
-            }
-
-            Imagen1.setImageURI(imageUri)
         }
     }
 
