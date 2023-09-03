@@ -15,8 +15,8 @@ class Calendario : AppCompatActivity() {
         btnCAlendario = findViewById(R.id.calend)
 
         btnCalendario.setOnClickListener{
-            val Calendario: Intent = Intent(this, Agendar::class.java)
-            startActivity(Calendario)
+            val uwu: Intent = Intent(this, Agendar::class.java)
+            startActivity(uwu)
         }
     }
 }
