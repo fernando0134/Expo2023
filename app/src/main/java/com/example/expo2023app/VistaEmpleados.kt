@@ -21,7 +21,7 @@ var Conectar: Connection? = null
 class VistaEmpleados : AppCompatActivity() {
 
     private val AGREGAR_EMPLEADOS_REQUEST_CODE = 1
-    private val EDITAR_PRODUCTO_REQUEST_CODE = 2
+    private val EDITAR_EMPLEADOS_REQUEST_CODE = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +47,7 @@ class VistaEmpleados : AppCompatActivity() {
         }
 
     }
+    @SuppressLint("MissingInflatedId")
     private fun Actualizar(){
         Conectar = ConnectSql().dbConn()
 
@@ -66,7 +67,7 @@ class VistaEmpleados : AppCompatActivity() {
                 val foto: ByteArray? = resultSet.getBytes("fotoempleado")
 
                 //Creamos una nueva card (la cual tendriamos que haber hecho el diseño antes) /layout/card_producto
-                val cardView = layoutInflater.inflate(R.layout.activity_card_empleados, null)
+                val cardView = layoutInflater.inflate(R.layout.card_empleados, null)
 
                 //Hacemos las variables para hacer referencia a los componentes de la card (TextViews, Botones, etc...)
 
@@ -78,16 +79,16 @@ class VistaEmpleados : AppCompatActivity() {
 
                 //Botones de las cards
 
-                val btnEditar = cardView.findViewById<TextView>(R.id.cardEditar_btnEditar)
-                val btnEliminar = cardView.findViewById<TextView>(R.id.cardEmpleados_btnEliminar)
+                val btnEliminarEmpleado = cardView.findViewById<TextView>(R.id.cardEmpleado_btnEliminar)
+                val btnEditarEmpleado = cardView.findViewById<TextView>(R.id.cardEmpleado_btnEditar)
 
-                val btnInfo = cardView.findViewById<LinearLayout>(R.id.cardEmpleados_Info)
+                val btnInformacionEmpleado = cardView.findViewById<LinearLayout>(R.id.cardEmpleados_Info)
 
-                btnInfo.setOnClickListener {
+                btnInformacionEmpleado.setOnClickListener {
                     val i = Intent(this, InformacionEmpleados::class.java)
                     i.putExtra("nomb", nombre)
-                    i.putExtra("departamento", departamento)
-                    i.putExtra("Dui", dui)
+                    i.putExtra("depa", departamento)
+                    i.putExtra("dui", dui)
                     if (foto != null && foto.isNotEmpty()) {
                         i.putExtra("foto", foto) // Pasar el ByteArray directamente
                     }
@@ -95,18 +96,18 @@ class VistaEmpleados : AppCompatActivity() {
                 }
 
 
-                btnEditar.setOnClickListener {
-                    val i = Intent(this, EditarEmpleados::class.java)
+                btnEditarEmpleado.setOnClickListener {
+                    val i = Intent(this, EditarE::class.java)
                     i.putExtra("nomb", nombre)
-                    i.putExtra("departamento", departamento)
-                    i.putExtra("Dui", dui)
+                    i.putExtra("depa", departamento)
+                    i.putExtra("dui", dui)
                     if (foto != null && foto.isNotEmpty()) {
                         i.putExtra("foto", foto) // Pasar el ByteArray directamente
                     }
-                    startActivityForResult(i, EDITAR_PRODUCTO_REQUEST_CODE)
+                    startActivityForResult(i, EDITAR_EMPLEADOS_REQUEST_CODE )
                 }
 
-                btnEliminar.setOnClickListener {
+                btnEliminarEmpleado.setOnClickListener {
                     var con = ConnectSql().dbConn()
                     if (con!=null){
                         try {

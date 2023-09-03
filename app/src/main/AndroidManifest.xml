@@ -16,10 +16,10 @@
         android:theme="@style/Theme.Expo2023app"
         tools:targetApi="31">
         <activity
-            android:name=".InformacionEmpleados"
+            android:name=".EditarE"
             android:exported="false" />
         <activity
-            android:name=".EditarEmpleados"
+            android:name=".InformacionEmpleados"
             android:exported="false" />
         <activity
             android:name=".VistaEmpleados"
