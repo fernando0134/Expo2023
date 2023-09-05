@@ -15,8 +15,8 @@ class Masajes : AppCompatActivity() {
         setContentView(R.layout.activity_masajes)
 
         btnRelajante = findViewById(R.id.relajante)
-        btnmasajes = findViewById(R.id.btnmasajes)
-        btnQuiropractico = findViewById(R.id.Calendario)
+        btnmasajes = findViewById(R.id.BtnMasaje)
+        btnQuiropractico = findViewById(R.id.Quiropractico)
 
         btnmasajes.setOnClickListener {
             val masajes: Intent = Intent(this, Agendar::class.java)

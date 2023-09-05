@@ -1,5 +1,6 @@
 package com.example.expo2023app
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,16 +14,17 @@ lateinit var BtnReportes: Button
 lateinit var BtnClientes: Button
 
 class VistaClinica : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vista_clinica)
 
         btnCalendario = findViewById(R.id.Calendario)
-        btnMasajes = findViewById(R.id.btnmasajes)
+        btnMasajes = findViewById(R.id.BtnMasaje)
         BtnEmpleados  = findViewById(R.id.Empleados)
         BtnFactura = findViewById(R.id.btnFactura)
         BtnReportes = findViewById(R.id.reportes)
-        BtnClientes = findViewById(R.id.clientes)
+        BtnClientes = findViewById(R.id.Cliente)
 
         btnMasajes.setOnClickListener {
             val Masajes: Intent = Intent(this, Masajes::class.java)
