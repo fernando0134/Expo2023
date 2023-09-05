@@ -3,26 +3,17 @@ package com.example.expo2023app
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.*
-import java.io.ByteArrayOutputStream
 import java.sql.PreparedStatement
 import java.sql.SQLException
-
-
-
-
-
 
 
 private lateinit var lblmasaje:EditText
 private lateinit var lblPrecio:EditText
 private lateinit var btnAgendar:Button
-
+private lateinit var btnVer:Button
 
 private lateinit var spinner:Spinner
 
@@ -72,6 +63,7 @@ class Agendar : AppCompatActivity() {
         lblPrecio=findViewById(R.id.precio)
 
         btnAgendar=findViewById(R.id.AgendarMasaje)
+        btnVer = findViewById(R.id.AgregarAgendar_Ver)
 
         btnAgendar.setOnClickListener {
             if(lblPrecio.text.toString()!="" && lblmasaje.text.toString()!="" && spinner.selectedItem.toString()!="Seleccione una opcion..."){
@@ -88,7 +80,7 @@ class Agendar : AppCompatActivity() {
                     val inicio: Intent = Intent(this, VistaAgendar::class.java)
                     addMasajes.setString(1, lblmasaje.text.toString())
                     addMasajes.setString(2, lblPrecio.text.toString())
-                    addMasajes.setString(4, spinner.selectedItem.toString())
+                    addMasajes.setString(3, spinner.selectedItem.toString())
                     addMasajes.executeUpdate()
 
                     Toast.makeText(this, "Se ha registrado correctamente", Toast.LENGTH_SHORT).show()
@@ -109,6 +101,11 @@ class Agendar : AppCompatActivity() {
                 Toast.makeText(this, "Rellene todos los campo", Toast.LENGTH_SHORT).show()
             }
 
+        }
+
+        btnVer.setOnClickListener {
+            val inicio: Intent = Intent(this, VistaAgendar::class.java)
+            startActivity(inicio)
         }
 
     }

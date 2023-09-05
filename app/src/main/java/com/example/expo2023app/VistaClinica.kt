@@ -22,7 +22,7 @@ class VistaClinica : AppCompatActivity() {
         BtnEmpleados  = findViewById(R.id.Empleados)
         BtnFactura = findViewById(R.id.btnFactura)
         BtnReportes = findViewById(R.id.reportes)
-        BtnClientes
+        BtnClientes = findViewById(R.id.clientes)
 
         btnMasajes.setOnClickListener {
             val Masajes: Intent = Intent(this, Masajes::class.java)
@@ -41,6 +41,14 @@ class VistaClinica : AppCompatActivity() {
         BtnReportes.setOnClickListener {
             val Repor: Intent = Intent(this,Reportes::class.java)
             startActivity(Repor)
+        }
+        BtnClientes.setOnClickListener {
+            val clientes: Intent = Intent(this,Clientes::class.java)
+            startActivity(clientes)
+        }
+        BtnFactura.setOnClickListener {
+            val factura: Intent = Intent(this,Factura::class.java)
+            startActivity(factura)
         }
     }
 }

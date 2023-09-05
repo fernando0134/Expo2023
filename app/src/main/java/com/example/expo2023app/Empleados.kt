@@ -20,6 +20,7 @@ import java.sql.SQLException
 private lateinit var lblEmpleadooNom:EditText
 private lateinit var lblDui:EditText
 private lateinit var btnAgregarEmpleado:Button
+private  lateinit var  btnVer: Button
 
 private lateinit var spinner:Spinner
 
@@ -81,6 +82,7 @@ class Empleados : AppCompatActivity() {
         lblEmpleadooNom=findViewById(R.id.AgregarEmpleado_name)
         lblDui=findViewById(R.id.AgregarEmpleado_Dui)
         btnAgregarEmpleado=findViewById(R.id.AgregarEmpleados_agregar)
+        btnVer = findViewById(R.id.AgregarEmpleados_Ver)
 
         btnAgregarEmpleado.setOnClickListener {
             //Verificamos que los cammpos no sean los de por defecto
@@ -128,6 +130,11 @@ class Empleados : AppCompatActivity() {
                 Toast.makeText(this, "Rellene todos los campo", Toast.LENGTH_SHORT).show()
             }
 
+        }
+
+        btnVer.setOnClickListener {
+            val inicio: Intent = Intent(this, VistaEmpleados::class.java)
+            startActivity(inicio)
         }
 
     }

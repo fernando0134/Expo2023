@@ -16,6 +16,15 @@
         android:theme="@style/Theme.Expo2023app"
         tools:targetApi="31">
         <activity
+            android:name=".ClientesEditar"
+            android:exported="false" />
+        <activity
+            android:name=".VistaCliente"
+            android:exported="false" />
+        <activity
+            android:name=".InformacionCliente"
+            android:exported="false" />
+        <activity
             android:name=".Clientes"
             android:exported="false" />
         <activity

@@ -69,7 +69,7 @@
         android:hint="Cliente"
         android:inputType="textPersonName"
         android:paddingHorizontal="15dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHighlight="#907ADD"
         android:textColorHint="#787B8F"
         android:textColorLink="#907ADD"
@@ -103,7 +103,7 @@
         android:hint="Telefono"
         android:inputType="numberDecimal"
         android:paddingHorizontal="15dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHint="#787B8F"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -172,6 +172,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.959">
+
+
+        <Button
+            android:id="@+id/Agregarcliente_Ver"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#174C4F"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Ver"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/AgregarCliente_agregar"
